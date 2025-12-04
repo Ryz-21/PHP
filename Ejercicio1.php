@@ -1,22 +1,16 @@
 <?php
-#● Crea un contador que no pueda disminuir de 0 y no pueda superar 10
-#● Crea un botón que cambie entre modo claro y modo oscuro
-#● Crear un formulario de contacto donde tenga los campos de nombre, email,mensaje.
-#Se debe de visualizar la validación y mostrar un mensaje de envío exitoso.
-#● Calculadora simple donde se pueda sumar, restar o multiplicar de dos números
-
-
-#● Crear una lista donde se pueda hacer un buscador y filtrar.
-
-
+# Crear una lista donde se pueda hacer un buscador y filtrar.
 $lista = ["nose", "nervios", "gato"];
 
-if($_POST("REQUEST_METHOD") == "POST"){
+if($_SERVER("REQUEST_METHOD") == "POST"){
 
     $variable = $_POST["palabrafiltrar"];
 
-    foreach($variable as $lista){
-        echo"se encontro la variable";
+
+    if(in_array($variable, $lista)){
+        echo "<p style='color: green;'>Se encontró la palabra '$variable'</p>";
+    } else {
+        echo "<p style='color: red;'>No se encontró la palabra '$variable'</p>";
     }
 }
 
